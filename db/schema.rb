@@ -9,8 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
- 
-ActiveRecord::Schema.define(version: 2019_07_29_190052) do
+
+ActiveRecord::Schema.define(version: 2019_07_29_210526) do
 
   create_table "game_answers", force: :cascade do |t|
     t.integer "game_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_190052) do
     t.integer "game_form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "complete?"
   end
 
   create_table "style_syns", force: :cascade do |t|
