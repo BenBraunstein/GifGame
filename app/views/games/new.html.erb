@@ -1,2 +1,21 @@
-<h1>Games#new</h1>
-<p>Find me in app/views/games/new.html.erb</p>
+<h1>Start a New Game!</h1>
+
+[Should only be accessable if current user is the right one]
+
+<h2>Choose a Type of Game </h2>
+
+<% game_types.each do |game_type| %>
+
+<div>
+    <h3><%=game_type.name%></h3>
+    <br />
+    <p><%=game_type.description%></p>
+    <%= button_to "Play Now!"%>
+</div>
+
+<% end %>
+
+
+
+
+<h2>Play a Friend's Game<h3>

@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit <%= @user.username %></h1>
+
+<%= form_for @user do |f| %>
+<%= f.label :username, "Username" %>
+<%= f.text_field :username %>
+<%= f.label :password, "Password" %>
+<%= f.password_field :password %>
+
+<%= f.submit("Edit #{@user.username}") %>
+<% end %>
