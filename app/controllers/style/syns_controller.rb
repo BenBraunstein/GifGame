@@ -8,9 +8,11 @@ class Style::SynsController < ApplicationController
   end
 
   def new
-    
+
   end
 
   def destroy
+
   end
+  
 end 

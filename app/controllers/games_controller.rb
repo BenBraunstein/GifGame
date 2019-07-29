@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   helper_method :game_types
 
   def game_types
-    [{ style: "syn", name: "The Synonym Game", description: "Here's a short blurb about how to play the game!" }]
+    GameForm.game_types
   end
 
   def index

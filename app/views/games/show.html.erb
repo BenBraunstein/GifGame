@@ -1,6 +1,23 @@
-<h1><%= @game.game_form.style %></h1>
-<h2>Player: <%= @user.username%> </h2>
+<h1><%= @game.game_form.title %></h1>
+
+
+[only accessible to player]
+
+<br/>
+
+<% if @game.complete? %>
+
+[Display results table if complete]
+
+
+<% else %>
 
 [Display play forms if not complete]
 
-[Display results table if complete]
+[Instructions]
+
+[Questions]
+
+[Submit Button]
+
+<% end %>
