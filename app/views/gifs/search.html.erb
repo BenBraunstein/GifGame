@@ -1,0 +1,9 @@
+<h1>Gifs#search</h1>
+<p>Find me in app/views/gifs/show.html.erb</p>
+
+<%= form_tag('/gifs/search/') do %>
+<%= label_tag("Search") %>
+<%= text_field_tag("query") %>
+
+<%= submit_tag ("Search") %>
+<% end %>

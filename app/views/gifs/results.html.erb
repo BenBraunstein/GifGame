@@ -1,0 +1,11 @@
+<h1>Gifs#results</h1>
+<%= form_tag('/gifs/search/') do %>
+<%= label_tag("Search") %>
+<%= text_field_tag("query") %>
+
+<%= submit_tag ("Search") %>
+<% end %>
+<% @gifs.each do |gif| %>
+<%= image_tag(gif) %>
+
+<% end %>
