@@ -23,4 +23,4 @@ class GamesController < ApplicationController
     # Create game_form (automatically create the game questions)
     @game.create(user_id: params[:user_id], game_form_id: game_form.id, complete?: false)
   end
-end
+end 

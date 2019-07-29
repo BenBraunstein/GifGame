@@ -7,9 +7,8 @@
 <% game_types.each do |game_type| %>
 
 <div>
-    <h3><%=game_type.name%></h3>
-    <br />
-    <p><%=game_type.description%></p>
+    <h3><%=game_type[:name]%></h3>
+    <p><%=game_type[:description]%></p>
     <%= button_to "Play Now!"%>
 </div>
 
