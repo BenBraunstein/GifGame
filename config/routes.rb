@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+
+  namespace :style do
+    resources :syns, only: [:index, :show, :new, :destroy]
+  end
+
+
+
   resources :users do
     resources :games, only: [:index, :show, :new, :create]
   end

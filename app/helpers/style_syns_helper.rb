@@ -1,0 +1,2 @@
+module StyleSynsHelper
+end
