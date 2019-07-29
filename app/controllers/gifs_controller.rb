@@ -8,4 +8,8 @@ class GifsController < ApplicationController
     gif_urls = body["results"].map {|gif| gif["media"].first["gif"]["url"]}
     @gifs = gif_urls
   end
+
+  def question
+    @game_form = GameForm.first
+  end
 end

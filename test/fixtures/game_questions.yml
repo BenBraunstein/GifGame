@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game_form: one
+  style_id: 1
+  style_type: MyString
+
+two:
+  game_form: two
+  style_id: 1
+  style_type: MyString
