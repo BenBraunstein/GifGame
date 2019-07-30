@@ -1,0 +1,2 @@
+module QuestionSynsHelper
+end

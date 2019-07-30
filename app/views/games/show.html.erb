@@ -1,23 +1,57 @@
-<h1><%= @game.game_form.title %></h1>
-
+<h1><%= @game.game_form.info[:name] %></h1>
 
 [only accessible to player]
 
-<br/>
 
 <% if @game.complete? %>
 
-[Display results table if complete]
+
+    <h4><%="(played on: #{@game.updated_at})"%></h4>
+
+    <h3>Results</h3>
+
+    <% @game.game_answers.each_with_index do |answer, index| %>
+
+        <h4>Question <%= index + 1%></h4>
+
+        <%= answer.choice %>
+        <%= "was #{answer.correct?}"%>
+
+    <% end %>
 
 
 <% else %>
 
-[Display play forms if not complete]
+    <h3>Instructions</h3>
 
-[Instructions]
+    <%= @game.game_form.info[:instructions] %>
 
-[Questions]
+    <h3>Questions</h3>
 
-[Submit Button]
+
+    <%= form_tag "/users/#{@game.user.id}/games/#{@game.id}" do %>
+
+        <% @game.game_form.questions.each_with_index do |question, index|%>
+
+        <h4>Question <%= index + 1 %></h4>
+
+        <%= display_prompt(@game, question).html_safe %>
+
+        <br/>
+        
+            <% randomize_choices(@game, question).each do |choice|%>
+
+                <%= label_tag display_choice(@game, choice) %>
+                <%= radio_button_tag "#{index + 1}", choice %>
+
+            <% end %>
+
+        <% end %>
+
+    <br/>
+
+    <%= submit_tag "Submit Answers!" %>
+
+    <% end %>
 
 <% end %>

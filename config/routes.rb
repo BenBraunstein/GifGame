@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show, :new, :create]
   end
 
+  post '/users/:user_id/games/:game_id', to: 'games#answers'
+
+  
+
   get "gifs/search/", to: "gifs#search"
 
   get "gifs/question", to: "gifs#question"

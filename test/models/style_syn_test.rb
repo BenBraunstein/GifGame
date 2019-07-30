@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StyleSynTest < ActiveSupport::TestCase
+class QuestionSynTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
