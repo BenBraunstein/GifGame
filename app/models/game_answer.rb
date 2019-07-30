@@ -9,4 +9,4 @@ class GameAnswer < ApplicationRecord
   def correct?
     self.question.a == self.choice
   end
-end
+end 
