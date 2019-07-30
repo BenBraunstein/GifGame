@@ -1,2 +1,29 @@
-<h1>StyleSyns#new</h1>
-<p>Find me in app/views/style_syns/new.html.erb</p>
+<h1>Approve some new Syn Questions</h1>
+
+<%= form_tag(question_syns_path) do %>
+<%= hidden_field_tag("length", @possible_questions.length) %>
+
+<% @possible_questions.each_with_index do |question, i| %>
+<h2>Question <%= i + 1 %></h2>
+<%= image_tag(question.gif) %>
+<%= hidden_field_tag("q#{i+1}_gif", question.gif) %>
+<% choices = [question.w1, question.w2, question.w3].shuffle %>
+<ul>
+    <li style="color:green"><%= question.a %></li>
+    <%= hidden_field_tag("q#{i+1}_a", question.a) %>
+    <% choices.each_with_index do |choice, j| %>
+    <li>
+        <%= text_field_tag("q#{i+1}_w#{j+1}", choice) %>
+    </li>
+    <% end %>
+</ul>
+
+<%= radio_button_tag("q#{i+1}","yes") %>
+<%= label_tag("Accept") %>
+<%= radio_button_tag("q#{i+1}", "no", checked = true) %>
+<%= label_tag("Deny") %>
+<% end %>
+<br>
+
+<%= submit_tag("Add Questions") %>
+<% end %>

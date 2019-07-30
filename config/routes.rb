@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
   namespace :question do
-    resources :syns, only: [:index, :show, :new, :destroy]
+    resources :syns, only: [:index, :show, :new, :destroy, :create]
   end
 
 
