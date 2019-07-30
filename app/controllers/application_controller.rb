@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
           name: "The Synonym Game",
           description: "Here's a short blurb about the game!",
           instructions: "Here are the full instrucitons for the game"}
-    when "syn"
+    when "dog"
         { style: "dog",
           name: "The Dog Breed Game",
           description: "Here's a short blurb about the game!",

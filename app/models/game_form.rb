@@ -13,7 +13,7 @@ class GameForm < ApplicationRecord
 
         game_form = GameForm.last
 
-        style_hash = {syn: {class: QuestionSyn, question_number: 5, question_type: "QuestionSyn"}
+        style_hash = {syn: {class: QuestionSyn, question_number: 5, question_type: "QuestionSyn"},
                       dog: {class: QuestionDog, quesiton_number: 10, question_type: "QuestionDog"}
                      }
 
