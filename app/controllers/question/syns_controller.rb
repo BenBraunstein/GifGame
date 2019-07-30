@@ -43,7 +43,7 @@ class Question::SynsController < ApplicationController
         QuestionSyn.create(strong_question_params(index))
       end
     end
-    redirect_to new_question_syn_path
+    redirect_to question_syn_path
   end
 
   def destroy
