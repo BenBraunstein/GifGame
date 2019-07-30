@@ -16,13 +16,13 @@ class ApplicationController < ActionController::Base
     when "syn"
         { style: "syn",
           name: "The Synonym Game",
-          description: "Here's a short blurb about the game!",
-          instructions: "Here are the full instrucitons for the game"}
+          description: "Guess the word that searched for a gif!",
+          instructions: "Each question is answered with one of four synonyms. Guess which synonym generated that question's gif!"}
     when "dog"
         { style: "dog",
           name: "The Dog Breed Game",
-          description: "Here's a short blurb about the game!",
-          instructions: "Here are the full instrucitons for the game"}
+          description: "Test your knowledge of dog breeds!",
+          instructions: "For each gif, choose the breed of the dog featured in that gif!"}
     end
  
   end
