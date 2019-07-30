@@ -6,52 +6,52 @@
 <% if @game.complete? %>
 
 
-    <h4><%="(played on: #{@game.updated_at})"%></h4>
+<h4><%="(played on: #{@game.updated_at})"%></h4>
 
-    <h3>Results</h3>
+<h3>Results</h3>
 
-    <% @game.game_answers.each_with_index do |answer, index| %>
+<% @game.game_answers.each_with_index do |answer, index| %>
 
-        <h4>Question <%= index + 1%></h4>
+<h4>Question <%= index + 1%></h4>
 
-        <%= answer.choice %>
-        <%= "was #{answer.correct?}"%>
+<%= answer.choice %>
+<%= "was #{answer.correct?}"%>
 
-    <% end %>
+<% end %>
 
 
 <% else %>
 
-    <h3>Instructions</h3>
+<h3>Instructions</h3>
 
-    <%= info(@game.game_form.style)[:instructions] %>
+<%= info(@game.game_form.style)[:instructions] %>
 
-    <h3>Questions</h3>
+<h3>Questions</h3>
 
 
-    <%= form_tag "/users/#{@game.user.id}/games/#{@game.id}" do %>
+<%= form_tag "/users/#{@game.user.id}/games/#{@game.id}" do %>
 
-        <% @game.game_form.questions.each_with_index do |question, index|%>
+<% @game.game_form.questions.each_with_index do |question, index|%>
 
-        <h4>Question <%= index + 1 %></h4>
+<h4>Question <%= index + 1 %></h4>
 
-        <%= display_prompt(@game.game_form.style, question).html_safe %>
+<%= display_prompt(@game.game_form.style, question).html_safe %>
 
-        <br/>
-        
-            <% randomize_choices(@game.game_form.style, question).each do |choice|%>
+<br />
 
-                <%= label_tag display_choice(@game.game_form.style, choice) %>
-                <%= radio_button_tag "#{index + 1}", choice %>
+<% randomize_choices(@game.game_form.style, question).each do |choice|%>
 
-            <% end %>
+<%= radio_button_tag "#{index + 1}", choice %>
+<%= label_tag display_choice(@game.game_form.style, choice) %>
 
-        <% end %>
+<% end %>
 
-    <br/>
+<% end %>
 
-    <%= submit_tag "Submit Answers!" %>
+<br />
 
-    <% end %>
+<%= submit_tag "Submit Answers!" %>
+
+<% end %>
 
 <% end %>
