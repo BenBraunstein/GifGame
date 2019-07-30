@@ -5,6 +5,7 @@ require "uri"
 require "faker"
 require "spicy-proton"
 require "json"
+require "dinosaurus"
 
 require_relative "config/environment"
 

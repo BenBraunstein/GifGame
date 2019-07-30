@@ -32,6 +32,7 @@ gem 'faker'
 gem 'spicy-proton'
 gem 'net'
 gem 'json'
+gem 'dinosaurus'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
