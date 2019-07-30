@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_210526) do
+ActiveRecord::Schema.define(version: 2019_07_29_234847) do
 
   create_table "game_answers", force: :cascade do |t|
     t.integer "game_id"
@@ -30,12 +30,12 @@ ActiveRecord::Schema.define(version: 2019_07_29_210526) do
 
   create_table "game_questions", force: :cascade do |t|
     t.integer "game_form_id"
-    t.integer "style_id"
-    t.string "style_type"
+    t.integer "question_id"
+    t.string "question_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_form_id"], name: "index_game_questions_on_game_form_id"
-    t.index ["style_id", "style_type"], name: "index_game_questions_on_style_id_and_style_type"
+    t.index ["question_id", "question_type"], name: "index_game_questions_on_question_id_and_question_type"
   end
 
   create_table "games", force: :cascade do |t|
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_210526) do
     t.boolean "complete?"
   end
 
-  create_table "style_syns", force: :cascade do |t|
+  create_table "question_syns", force: :cascade do |t|
     t.string "gif"
     t.string "a"
     t.string "w1"

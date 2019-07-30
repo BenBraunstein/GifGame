@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
 
-  namespace :style do
+  namespace :question do
     resources :syns, only: [:index, :show, :new, :destroy]
   end
 
