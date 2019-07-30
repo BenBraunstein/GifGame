@@ -1,0 +1,7 @@
+
+<h1>Movie Questions</h1>
+
+
+<% @questions.each do |question|%>
+    <li><%=link_to question, question_movie_path(question)%></li>
+<% end %>

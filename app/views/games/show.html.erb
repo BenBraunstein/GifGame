@@ -6,7 +6,7 @@
 <% if @game.complete? %>
 
 
-<h4><%="(played on: #{@game.updated_at})"%></h4>
+<h4><%="(played on #{@game.updated_at.to_date})"%></h4>
 
 <h3>Results</h3>
 

@@ -1,0 +1,7 @@
+
+<h1>Matching Questions</h1>
+
+
+<% @questions.each do |question|%>
+    <li><%=link_to question, question_mat_path(question)%></li>
+<% end %>

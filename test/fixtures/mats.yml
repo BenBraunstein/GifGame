@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gif1: MyString
+  gif2: MyString
+  gif3: MyString
+  agif: MyString
+  wgif: MyString
+
+two:
+  gif1: MyString
+  gif2: MyString
+  gif3: MyString
+  agif: MyString
+  wgif: MyString

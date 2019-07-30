@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   namespace :question do
     resources :syns, only: [:index, :show, :new, :destroy, :create]
+    resources :dogs, only: [:index, :show, :new, :destroy]
+    resources :movs, only: [:index, :show, :new, :destroy]
   end
 
 

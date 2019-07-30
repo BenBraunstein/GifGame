@@ -1,0 +1,6 @@
+<h1>Dog Breed Questions</h1>
+
+
+<% @questions.each do |question|%>
+    <li><%=link_to question, question_dog_path(question)%></li>
+<% end %>
