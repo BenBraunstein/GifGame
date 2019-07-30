@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
           description: "Here's a short blurb about the game!",
           instructions: "Here are the full instrucitons for the game"}
     end
-
+ 
   end
 
   def display_prompt(style, question)
