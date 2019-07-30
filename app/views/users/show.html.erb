@@ -13,7 +13,7 @@
 <ul>
     <% @user.games.select{|game| !game.complete?}.each do |game| %>
     <li>
-        <%= game %>
+        <%= link_to(game, user_game_path(@user, game)) %>
     </li>
     <% end %>
 </ul>
@@ -33,9 +33,9 @@
 
 <% game_types.each do |type| %>
 
-    <h5><%= "#{info(type)[:name]}" %></h5>
-    <%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.correct? && answer.game.game_form.style == type}.length} Correct Answers" %>
-    <br/>
+<h5><%= "#{info(type)[:name]}" %></h5>
+<%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.game.game_form.style == type}.length} Correct Answers" %>
+<br />
 
 
 <% end %>
@@ -44,7 +44,7 @@
 <h4>Favorite Game Styles</h4>
 
 <% @user.games.group_by{|game| game.game_form.style}.to_a.sort_by{|pair| -pair[1].length}.each do |style_pair|%>
-    <%= "#{info(style_pair[0])[:name]} (#{style_pair[1].length} games)"%>
+<%= "#{info(style_pair[0])[:name]} (#{style_pair[1].length} games)"%>
 <% end %>
 
 
@@ -58,4 +58,3 @@
     </li>
     <% end %>
 </ul>
-
