@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :info
 
   def game_types
-    ["syn", "dog", "mov"]
+    ["syn", "dog", "mov", "mat"]
   end
 
   def info(style)
@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
           name: "The Movie Game",
           description: "Test your movie knowledge!",
           instructions: "For each gif, choose the movie that that gif comes from!"}
+    when "mat"
+        { style: "mat",
+          name: "The Matching Game",
+          description: "Figure out which gif goes with the others!",
+          instructions: "Each question has a collection of three related gifs. You have to decide which of two futher gifs goes best with the first three!"}
     end
  
   end
@@ -41,6 +46,8 @@ class ApplicationController < ActionController::Base
       "<img src='#{question.gif}' height='250' width='250'>"
     when "mov"
       "<img src='#{question.gif}' height='250' width='250'>"
+    when "mat"
+      "<img src='#{question.gif1}' height='250' width='250'><img src='#{question.gif2}' height='250' width='250'><img src='#{question.gif3}' height='250' width='250'>"
     end
 
   end
@@ -54,6 +61,8 @@ class ApplicationController < ActionController::Base
         "#{choice}"
     when "mov"
         "#{choice}"
+    when "mat"
+        "<img src='#{choice}' height='250' width='250'>"
     end
 
   end
@@ -67,6 +76,8 @@ class ApplicationController < ActionController::Base
         [question.a, question.w1, question.w2, question.w3].shuffle
     when "mov"
         [question.a, question.w1, question.w2, question.w3].shuffle
+    when "mat"
+        [question.agif, question.wgif].shuffle
     end
 
   end
