@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :info
 
   def game_types
-    ["syn", "dog"]
+    ["syn", "dog", "mov"]
   end
 
   def info(style)
@@ -23,6 +23,11 @@ class ApplicationController < ActionController::Base
           name: "The Dog Breed Game",
           description: "Test your knowledge of dog breeds!",
           instructions: "For each gif, choose the breed of the dog featured in that gif!"}
+    when "mov"
+        { style: "mov",
+          name: "The Movie Game",
+          description: "Test your movie knowledge!",
+          instructions: "For each gif, choose the movie that that gif comes from!"}
     end
  
   end
@@ -33,6 +38,8 @@ class ApplicationController < ActionController::Base
     when "syn"
         "<img src='#{question.gif}' height='250' width='250'>"
     when "dog"
+      "<img src='#{question.gif}' height='250' width='250'>"
+    when "mov"
       "<img src='#{question.gif}' height='250' width='250'>"
     end
 
@@ -45,6 +52,8 @@ class ApplicationController < ActionController::Base
         "#{choice}"
     when "dog"
         "#{choice}"
+    when "mov"
+        "#{choice}"
     end
 
   end
@@ -54,7 +63,9 @@ class ApplicationController < ActionController::Base
     case style
     when "syn"
         [question.a, question.w1, question.w2, question.w3].shuffle
-    when "syn"
+    when "dog"
+        [question.a, question.w1, question.w2, question.w3].shuffle
+    when "mov"
         [question.a, question.w1, question.w2, question.w3].shuffle
     end
 

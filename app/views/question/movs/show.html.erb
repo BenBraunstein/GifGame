@@ -1,0 +1,18 @@
+<h1> Movie Question <%= @question.id %> </h1>
+
+<%= display_prompt("mov", @question).html_safe %>
+
+<% randomize_choices("mov", @question).each do |choice|%>
+
+    <li><%= label_tag display_choice("mov", choice) %>
+        <%= "(correct)" if choice == @question.a %>
+    </li>
+
+<% end %>
+
+
+<%= button_to "Delete", question_mov_path(@question), method: :delete%>
+
+[Haven't tested funcionality yet (contrller not set up yet)]
+
+[Not sure what happens when deleting a question that's in use.]
