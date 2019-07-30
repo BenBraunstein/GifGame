@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_234847) do
+ActiveRecord::Schema.define(version: 2019_07_30_175816) do
 
   create_table "game_answers", force: :cascade do |t|
     t.integer "game_id"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2019_07_29_234847) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "complete?"
+  end
+
+  create_table "question_dogs", force: :cascade do |t|
+    t.string "gif"
+    t.string "a"
+    t.string "w1"
+    t.string "w2"
+    t.string "w3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "question_syns", force: :cascade do |t|

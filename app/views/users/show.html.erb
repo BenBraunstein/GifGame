@@ -33,8 +33,7 @@
 
 <% game_types.each do |type| %>
 
-    <%= "#{info(type)[:name]}" %>
-    <br/>
+    <h5><%= "#{info(type)[:name]}" %></h5>
     <%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.correct? && answer.game.game_form.style == type}.length} Correct Answers" %>
     <br/>
 
