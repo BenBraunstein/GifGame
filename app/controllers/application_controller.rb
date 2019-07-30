@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
           description: "Figure out which gif goes with the others!",
           instructions: "Each question has a collection of three related gifs. You have to decide which of two futher gifs goes best with the first three!"}
     end
- 
+  
   end
 
   def display_prompt(style, question)
