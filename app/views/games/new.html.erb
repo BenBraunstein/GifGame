@@ -7,9 +7,9 @@
 <% game_types.each do |game_type| %>
 
 <div>
-    <h3><%=game_type[:name]%></h3>
-    <p><%=game_type[:description]%></p>
-    <%= button_to "Play Now!"%>
+    <h3><%=info(game_type)[:name]%></h3>
+    <p><%=info(game_type)[:description]%></p>
+    <%= button_to "Play Now!", user_games_path(@user), params: {style: game_type} %>
 </div>
 
 <% end %>

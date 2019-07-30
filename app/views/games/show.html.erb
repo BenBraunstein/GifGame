@@ -1,4 +1,4 @@
-<h1><%= @game.game_form.info[:name] %></h1>
+<h1><%= info(@game.game_form.style)[:name] %></h1>
 
 [only accessible to player]
 
@@ -24,7 +24,7 @@
 
     <h3>Instructions</h3>
 
-    <%= @game.game_form.info[:instructions] %>
+    <%= info(@game.game_form.style)[:instructions] %>
 
     <h3>Questions</h3>
 
