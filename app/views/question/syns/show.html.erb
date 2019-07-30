@@ -1,2 +1,18 @@
-<h1>StyleSyns#show</h1>
-<p>Find me in app/views/style_syns/show.html.erb</p>
+<h1> Synonym Question <%= @question.id %> </h1>
+
+<%= display_prompt("syn", @question).html_safe %>
+
+<% randomize_choices("syn", @question).each do |choice|%>
+
+    <li><%= label_tag display_choice("syn", choice) %>
+        <%= "(correct)" if choice == @question.a %>
+    </li>
+
+<% end %>
+
+
+<%= button_to "Delete", question_syn_path(@question), method: :delete%>
+
+[Haven't tested funcionality yet]
+
+[Not sure what happens when deleting a question that's in use.]

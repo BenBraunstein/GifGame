@@ -2,5 +2,5 @@
 
 
 <% @questions.each do |question|%>
-    <li><%= question%></li>
+    <li><%=link_to question, question_syn_path(question)%></li>
 <% end %>

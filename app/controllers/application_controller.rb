@@ -20,29 +20,29 @@ class ApplicationController < ActionController::Base
           instructions: "Here are the full instrucitons for the game"}
     end
 
-end
+  end
 
-  def display_prompt(game, question)
+  def display_prompt(style, question)
 
-    case game.game_form.style
+    case style
     when "syn"
         "<img src='#{question.gif}' height='250' width='250'>"
     end
 
   end
 
-  def display_choice(game, choice)
+  def display_choice(style, choice)
 
-    case game.game_form.style
+    case style
     when "syn"
         "#{choice}"
     end
 
   end
 
-  def randomize_choices(game, question)
+  def randomize_choices(style, question)
 
-    case game.game_form.style
+    case style
     when "syn"
         [question.a, question.w1, question.w2, question.w3].shuffle
     end

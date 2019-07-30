@@ -35,13 +35,13 @@
 
         <h4>Question <%= index + 1 %></h4>
 
-        <%= display_prompt(@game, question).html_safe %>
+        <%= display_prompt(@game.game_form.style, question).html_safe %>
 
         <br/>
         
-            <% randomize_choices(@game, question).each do |choice|%>
+            <% randomize_choices(@game.game_form.style, question).each do |choice|%>
 
-                <%= label_tag display_choice(@game, choice) %>
+                <%= label_tag display_choice(@game.game_form.style, choice) %>
                 <%= radio_button_tag "#{index + 1}", choice %>
 
             <% end %>
