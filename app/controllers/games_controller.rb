@@ -17,7 +17,6 @@ class GamesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     game_form = GameForm.create(style: params[:style])
-    # Make creating a new Game Form automatically create the required game questions
     @game = Game.create(user_id: params[:user_id], game_form_id: game_form.id, complete?: false)
     redirect_to user_game_path(@user, @game)
   end
