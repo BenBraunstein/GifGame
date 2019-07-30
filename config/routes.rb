@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :syns, only: [:index, :show, :new, :destroy, :create]
     resources :dogs, only: [:index, :show, :new, :destroy, :create]
     resources :movs, only: [:index, :show, :new, :destroy, :create]
-    resrouces :mats, only: [:index, :show, :new, :destroy, :create]
+    resources :mats, only: [:index, :show, :new, :destroy, :create]
   end
 
 
