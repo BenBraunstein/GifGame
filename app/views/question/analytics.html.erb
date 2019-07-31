@@ -20,10 +20,28 @@
 
 <% end %>
 
-
 <h3>Game Difficulty</h3>
 
+<table >
+        <tr>
+          <th>Game Type</th>
+          <th>Questions Correct</th> 
+          <th>Questions Answered</th>
+        </tr>
 
-<h3>Questions by Difficulty</h3>
+    <% @difficulty_hash.each do |style, info_hash|%>
+
+        <tr>
+          <td><%= "#{info(style)[:name]}" %></td>
+          <td><%= info_hash[:correct] %></td> 
+          <td><%= info_hash[:total] %></td>
+        </tr>
+
+    <% end %>
+
+</table>
+
+
+
 
 
