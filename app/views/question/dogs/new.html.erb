@@ -1,4 +1,3 @@
-
 <h1>Approve some new Dog Breed Questions</h1>
 
 <%= form_tag(question_dogs_path) do %>
@@ -10,8 +9,7 @@
 <%= hidden_field_tag("q#{i+1}_gif", question.gif) %>
 <% choices = [question.w1, question.w2, question.w3].shuffle %>
 <ul>
-    <li style="color:green"><%= question.a %></li>
-    <%= hidden_field_tag("q#{i+1}_a", question.a) %>
+    <li style="color:green"><%= text_field_tag("q#{i+1}_a", question.a) %></li>
     <% choices.each_with_index do |choice, j| %>
     <li>
         <%= text_field_tag("q#{i+1}_w#{j+1}", choice) %>
