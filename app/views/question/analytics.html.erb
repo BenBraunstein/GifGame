@@ -1,6 +1,7 @@
 
 <h1>Question Control Zone</h1>
 
+
 <h2>Make New Questions</h2>
 
 <li><%= link_to "Synonym Questions", new_question_syn_path%></li>
@@ -8,9 +9,16 @@
 <li><%= link_to "Movie Questions", new_question_mov_path%></li>
 <li><%= link_to "Matching Questions", new_question_mat_path%></li>
 
+
 <h2>Analytics</h2>
 
 <h3>Game Popularity</h3>
+
+<% @popularity_pairs.each do |pair|%>
+
+    <li><%= "#{info(pair[0])[:name]} has been played #{pair[1]} times." %></li>
+
+<% end %>
 
 
 <h3>Game Difficulty</h3>
