@@ -1,3 +1,4 @@
+
 <h1><%= info(@game.game_form.style)[:name] %></h1>
 
 [only accessible to player]
@@ -57,7 +58,6 @@
 
     <%= display_prompt(@game.game_form.style, question).html_safe %>
 
-    <br />
 
     <% randomize_choices(@game.game_form.style, question).each do |choice|%>
 
@@ -68,7 +68,6 @@
 
     <% end %>
 
-    <br />
 
     <%= submit_tag "Submit Answers!" %>
 

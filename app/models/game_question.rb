@@ -3,9 +3,5 @@ class GameQuestion < ApplicationRecord
   belongs_to :question, polymorphic: true
 
 
-  def difficulty
-
-  end
-
 
 end
