@@ -8,13 +8,19 @@ Rails.application.routes.draw do
     resources :mats, only: [:index, :show, :new, :destroy, :create]
   end
 
+  get '/question', to: "questions#analytics"
 
 
   resources :users do
     resources :games, only: [:index, :show, :new, :create]
   end
 
+
+  post '/users/:user_id/games/form/:form_id', to: 'games#create_with_form', as: 'create_user_game_with_form'
+
   post '/users/:user_id/games/:game_id', to: 'games#answers'
+
+  
 
   
 

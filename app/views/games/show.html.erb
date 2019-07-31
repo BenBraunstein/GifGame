@@ -6,13 +6,28 @@
 
 <% if @game.complete? %>
 
-
-    <h4><%="(played on #{@game.updated_at.to_date})"%></h4>
-
-    <h2>Results</h2>
-    
     <h4><%= "You got #{@game.game_answers.select{|answer| answer.correct?}.length} out of #{@game.game_answers.length}!"%></h4>
 
+    <h2>Record Board</h2>
+
+    <% stored_index = 1 %>
+    <% previous_score = 0 %>
+
+    <% @game.game_form.sorted_comparative_results.each_with_index do |result_pair, index|%>
+
+        <% user = @users.find{|user| user.id == result_pair[0]} %>
+        <% score = result_pair[1]%>
+
+        <% if previous_score != score %>
+            <% stored_index = index + 1 %>
+        <% end %>
+
+        <li><%= "#{stored_index}. #{user.username}  (score of #{score} out of #{@game.game_form.game_questions.length})" %></li>
+        
+    <% end %>
+
+    <h2>Your Results</h2>
+    
     <% @game.game_answers.each_with_index do |answer, index| %>
 
         <h3>Question <%= index + 1%></h3>
@@ -36,9 +51,11 @@
 
         <% end %>
 
-        
-
     <% end %>
+
+    <h4><%="(played on #{@game.updated_at.to_date})"%></h4>
+
+    
 
 
 <% else %>
