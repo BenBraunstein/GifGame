@@ -16,12 +16,6 @@ class Question::SynsController < ApplicationController
     trending_word_array = JSON.parse(response.body)["results"]
     10.times do
       random_word = trending_word_array.sample.split.first
-      # Dinosaurus.configure { |config| config.api_key = "c8a5353f0fd3be8f2caef84d59d355ea" }
-      # synonym_array = Dinosaurus.synonyms_of(random_word)
-      # while synonym_array == []
-      #   random_word = trending_word_array.sample.split.first
-      #   synonym_array = Dinosaurus.synonyms_of(random_word)
-      # end
       uri = URI.parse("https://api.tenor.com/v1/search_suggestions?q=#{random_word}&key=#{ENV["TENOR_KEY"]}")
       response = Net::HTTP.get_response(uri)
       synonym_array = JSON.parse(response.body)["results"]

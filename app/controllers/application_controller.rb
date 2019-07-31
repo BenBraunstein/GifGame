@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
     when "mov"
       "<img src='#{question.gif}' height='250' width='250'>"
     when "mat"
-      "<img src='#{question.gif1}' height='250' width='250'><img src='#{question.gif2}' height='250' width='250'><img src='#{question.gif3}' height='250' width='250'>"
+      "<h4>Search: #{question.search_term}</h4>"
     end
 
   end
@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
     when "mov"
         [question.a, question.w1, question.w2, question.w3].shuffle
     when "mat"
-        [question.agif, question.wgif].shuffle
+        [question.a, question.w1, question.w2, question.w3].shuffle
     end
 
   end

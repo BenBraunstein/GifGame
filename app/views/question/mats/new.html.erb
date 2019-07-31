@@ -1,1 +1,29 @@
+<h1>Which Gif is the least popular</h1>
 
+<%= form_tag(question_mats_path) do %>
+<%= hidden_field_tag("length", @possible_questions.length) %>
+
+<% @possible_questions.each_with_index do |question, i| %>
+<h2>Question <%= i + 1 %></h2>
+<% choices = [question.w1, question.w2, question.w3].shuffle %>
+<%= image_tag(question.a) %>
+<%= hidden_field_tag("q#{i+1}_a", question.a) %>
+<% choices.each_with_index do |choice, j| %>
+<%= image_tag(choice) %>
+<%= hidden_field_tag("q#{i+1}_w#{j+1}", choice) %>
+<% end %>
+
+<br>
+<h5>Search: <%= question.search_term %></h5>
+<%= hidden_field_tag("q#{i+1}_search_term", question.search_term) %>
+<br>
+
+<%= radio_button_tag("q#{i+1}","yes") %>
+<%= label_tag("Accept") %>
+<%= radio_button_tag("q#{i+1}", "no", checked = true) %>
+<%= label_tag("Deny") %>
+<% end %>
+<br>
+
+<%= submit_tag("Add Questions") %>
+<% end %>
