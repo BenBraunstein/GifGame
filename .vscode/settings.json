@@ -14,6 +14,18 @@
     "vendor": true,
     "config/environments": true,
     "config/initializers": true,
-    "config/locales": true
+    "config/locales": true,
+    "config/application.rb": true,
+    "config/boot.rb": true,
+    "config/cable.yml": true,
+    "config/credentials.yml.enc": true,
+    "config/database.yml": true,
+    "config/environment.rb": true,
+    "config/puma.rb": true,
+    "config/spring.rb": true,
+    "config/storage.yml": true,
+    "app/models/concerns": true,
+    "app/controllers/concerns": true,
+    "app/assets": true
   }
 }
