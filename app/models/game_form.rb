@@ -28,6 +28,17 @@ class GameForm < ApplicationRecord
         
     end
 
+    def sorted_comparative_results
+        # Returns an array of pairs of user_ids and results
+        self.games.each_with_object({}){|game, hash| hash[game.user.id] = game.game_answers.select{|answer| answer.correct?}.length }
+        .to_a.sort_by{|pair| -pair[1]}
+    end
+
+    def number_of_plays
+
+        self.games.select{|game| game.complete?}.length
+
+    end
 
 
 end
