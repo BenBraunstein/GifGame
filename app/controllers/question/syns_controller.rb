@@ -1,4 +1,8 @@
 class Question::SynsController < ApplicationController
+
+  before_action :authorized?
+  before_action :authorized_admin?
+
   def index
     @questions = QuestionSyn.all
   end

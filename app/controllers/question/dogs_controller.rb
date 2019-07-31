@@ -1,4 +1,8 @@
 class Question::DogsController < ApplicationController
+
+  before_action :authorized?
+  before_action :authorized_admin? 
+
     def index
       @questions = QuestionDog.all
     end

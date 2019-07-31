@@ -1,5 +1,9 @@
 
 class Question::MatsController < ApplicationController
+
+before_action :authorized?
+before_action :authorized_admin?
+
   def index
     @questions = QuestionMat.all
   end

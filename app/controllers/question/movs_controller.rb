@@ -1,4 +1,8 @@
 class Question::MovsController < ApplicationController
+
+  before_action :authorized?
+  before_action :authorized_admin? 
+
   @@movie_list = ["Modern Times",
                   "Back to the Future",
                   "The Grand Budapest Hotel",

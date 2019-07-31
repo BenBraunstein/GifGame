@@ -1,0 +1,19 @@
+{
+  "files.exclude": {
+    "app/channels": true,
+    "app/helpers": true,
+    "app/mailers": true,
+    "app/jobs": true,
+    "bin": true,
+    "lib": true,
+    "log": true,
+    "public": true,
+    "storage": true,
+    "test": true,
+    "tmp": true,
+    "vendor": true,
+    "config/environments": true,
+    "config/initializers": true,
+    "config/locales": true
+  }
+}

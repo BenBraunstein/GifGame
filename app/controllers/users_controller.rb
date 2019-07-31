@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
+
+  before_action :authorized?, except: [:new, :create]
+  before_action :correct_user?, only: [:edit, :update]
+
   def new
     @user = User.new()
   end
 
   def create
     user = User.create(strong_user_params)
+    session[:user_id] = user.id
     redirect_to user_path(user)
   end
 
@@ -34,8 +39,8 @@ class UsersController < ApplicationController
   def strong_user_params
     {
       username: params[:user][:username],
-      password_digest: params[:user][:password],
-      admin?: false,
+      password: params[:user][:password],
+      admin?: false
     }
   end
 end
