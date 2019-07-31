@@ -1,13 +1,12 @@
-
 <h1> Matching Question <%= @question.id %> </h1>
 
 <%= display_prompt("mat", @question).html_safe %>
 
 <% randomize_choices("mat", @question).each do |choice|%>
 
-    <li><%= label_tag display_choice("mat", choice) %>
-        <%= "(correct)" if choice == @question.a %>
-    </li>
+<%= display_choice("mat", choice).html_safe %>
+<%= "(correct)" if choice == @question.a %>
+
 
 <% end %>
 
