@@ -73,7 +73,7 @@ class Question::MovsController < ApplicationController
     # Make an empty array that will store questions
     @possible_questions = []
 
-    50.times do
+    10.times do
       # Get random movie
       random_movie = @@movie_list.sample
       rmm = "#{random_movie} movie"

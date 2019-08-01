@@ -21,7 +21,7 @@ before_action :authorized_admin?
     response = Net::HTTP.get_response(uri)
     trending_word_array = JSON.parse(response.body)["results"]
     # Loop some amount of times
-    5.times do
+    10.times do
       random_word = trending_word_array.sample
       # The three
       uri = URI.parse("https://api.tenor.com/v1/search?q=#{random_word}&key=#{ENV["TENOR_KEY"]}&limit=50")
