@@ -42,11 +42,11 @@ class ApplicationController < ActionController::Base
   def display_prompt(style, question)
     case style
     when "syn"
-      "<img src='#{question.gif}' height='250' width='250'>"
+      "<img src='#{question.gif}' >"
     when "dog"
-      "<img src='#{question.gif}' height='250' width='250'>"
+      "<img src='#{question.gif}' >"
     when "mov"
-      "<img src='#{question.gif}' height='250' width='250'>"
+      "<img src='#{question.gif}' >"
     when "mat"
       "<h4>Search: #{question.search_term}</h4>"
     end
