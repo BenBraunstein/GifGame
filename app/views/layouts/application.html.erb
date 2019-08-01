@@ -17,9 +17,16 @@
 
 <body>
   <div class="ui secondary pointing menu">
-    <a class="item">
-      Home
-    </a>
+
+    <% if logged_in? %>
+      <%= link_to("Home", user_path(current_user), {class: "ui item"}) %>
+    <%else%>
+      <%= link_to("Home", "/", {class: "ui item"}) %>
+    <% end %>
+
+
+
+
     <% if logged_in? %>
     <%= link_to("Play Now!", new_user_game_path(current_user), {class: "ui item"}) %>
     <%= link_to("Find Friends!", users_path, {class: "ui item"}) %>
