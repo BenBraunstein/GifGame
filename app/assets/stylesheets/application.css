@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ * {
+  font-family: "Open Sans", sans-serif;
+ }
+
 .ui.secondary.pointing.menu {
   background-color: #fbbd08;
 }
@@ -25,6 +29,63 @@
   align-items: center;
 }
 
+
+.title {
+  font-family: "Baloo Chettan", cursive;
+  font-size: 48px;
+  border: black 16px double;
+  border-radius: 8px;
+  padding: 0 10vw;
+}
+
+.section-title {
+  font-family: "Baloo Chettan", cursive;
+  font-size: 36px;
+}
+
+.part-title {
+  font-family: "Baloo Chettan", cursive;
+  font-size: 24px;
+}
+
+ul {
+  padding: 10px 0;
+  border: black 8px double;
+  border-radius: 8px;
+  width: 300px;
+  list-style-type: none;
+}
+
+ol {
+  padding: 10px 0;
+  border: black 8px double;
+  border-radius: 8px;
+  width: 300px;
+}
+
+li {
+  font-size: 1.5em;
+  margin: .5em 1em;
+}
+
+
+
+.stats {
+  margin: 1vh 0;
+  border: black double 8px;
+  border-radius: 6px;
+  width: 400px;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+.stats > legend {
+  color: #fbbd08;;
+  background: #000;
+  padding: 0.25em 1em;
+  border-radius: 1em;
+  text-align: left;
+}
 
 
 
@@ -101,7 +162,7 @@ html {
 }
 
 .question > legend {
-  color: #fff;
+  color: #fbbd08;;
   background: #000;
   padding: 0.25em 1em;
   border-radius: 1em;
@@ -162,6 +223,8 @@ html {
 
 [type="submit"] {
   text-align: center;
+  color:black;
+  background: white;
   width: 200px;
   display: inline-block;
   border: black solid 4px;
@@ -175,6 +238,8 @@ html {
 [type="submit"]:hover {
   box-shadow: 0 0 0 0.1em #000;
 }
+
+
 
 .ui.secondary.pointing.menu .item:hover {
   border-bottom-color: royalblue;

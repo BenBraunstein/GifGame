@@ -9,7 +9,6 @@
 <%=text_field_tag(:username) %>
 <%= label_tag(:password) %>
 <%=password_field_tag(:password) %>
+<br/>
 <%=submit_tag("Log In") %>
 <%end%>
-
-<%= button_to("log out", "/sessions", method: "delete") %>

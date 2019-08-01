@@ -1,16 +1,13 @@
 
-<h1><%= @user.username %></h1>
-
-
+<h1 class="title"><%= @user.username %></h1>
 
 <%complete_games = @user.games.select{|game| game.complete?}%>
 
-
-
+<% if @user == current_user %>
 
 <%= button_to "Play Now!", new_user_game_path(@user), method: :get%>
 
-<h3>Ongoing Games</h3>
+<h2 class="section-title">Ongoing Games</h2>
 
 <ul>
     <% @user.games.select{|game| !game.complete?}.each do |game| %>
@@ -21,47 +18,52 @@
 </ul>
 <%= "None" if @user.games.select{|game| !game.complete?}.length == 0 %>
 
+<% end %>
 
 
-<h3>User Statistics</h3>
-
-<% answers_given = complete_games.flat_map{|game| game.game_answers}%>
-
-<h4>Overall Record</h4>
-
-<%= "#{answers_given.select{|answer| answer.correct?}.length} / #{answers_given.length} Correct Answers" %>
+<h2 class="section-title">User Statistics</h2>
 
 
-<div class="game-record-container">
+<h3 class="part-title">Record</h3>
 
-<h4>Record by Game Style</h4>
+
+<fieldset class="stats">
+    <% answers_given = complete_games.flat_map{|game| game.game_answers}%>
+    <legend>Overall</legend>
+    <%= "#{answers_given.select{|answer| answer.correct?}.length} / #{answers_given.length} Correct Answers" %>
+</fieldset>
+
 
 <% game_types.each do |type| %>
 
-<div class="game-record">
-<h5><%= "#{info(type)[:name]}" %></h5>
-<%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.game.game_form.style == type}.length} Correct Answers" %>
-</div>
+<fieldset class="stats">
+    <legend><%= "#{info(type)[:name]}" %></legend>
+    <%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.game.game_form.style == type}.length} Correct Answers" %>
+</fieldset>
 
 <% end %>
 
-</div>
+<h3 class="part-title">Favorite Game Styles</h3>
 
-
-<h4>Favorite Game Styles</h4>
+<ol>
 
 <% @user.games.group_by{|game| game.game_form.style}.to_a.sort_by{|pair| -pair[1].length}.each do |style_pair|%>
 <li><%= "#{info(style_pair[0])[:name]} (#{style_pair[1].length} games)"%></li>
 <% end %>
 
+</ol>
 
 
-<h3>Completed Games</h3>
+<% if complete_games.length > 0 && @user == current_user %>
+
+<h2 class="section-title">Completed Games</h2>
 <ul>
     <% complete_games.each do |game| %>
     <li>
         <% style = game.game_form.style %>
-        <%= link_to  "#{info(style)[:name]} (on #{game.updated_at.to_date})", user_game_path(@user, game) %>
+        <%= link_to  "#{info(style)[:name]}", user_game_path(@user, game) %>
     </li>
     <% end %>
 </ul>
+
+<% end %>
