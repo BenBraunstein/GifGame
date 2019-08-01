@@ -4,7 +4,9 @@
 <%= hidden_field_tag("length", @possible_questions.length) %>
 
 <% @possible_questions.each_with_index do |question, i| %>
+
 <h2>Question <%= i + 1 %></h2>
+
 <%= image_tag(question.gif) %>
 <%= hidden_field_tag("q#{i+1}_gif", question.gif) %>
 <% choices = [question.w1, question.w2, question.w3].shuffle %>
