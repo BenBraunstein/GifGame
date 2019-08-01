@@ -14,6 +14,68 @@
  *= require_self
  */
 
+.ui.secondary.pointing.menu {
+  background-color: #fbbd08;
+}
+
+.main-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+.outer_three {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width:max-content;
+  margin: 10vh auto 0 auto;
+
+}
+
+.inner_three {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin: 5px;
+  border: black 10px double;
+  border-radius: 10px;
+  background: black;
+  width: 200px;
+  height: 200px;
+  align-content: center;
+}
+
+.square > img {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+
+.main_title {
+  margin: 5px;
+  border-radius: 10px;
+  width: 620px;
+  height: 200px;;
+}
+
+
+
+
+
 img {
   max-width: 100%;
   max-height: 100%;
