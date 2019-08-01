@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GifGame</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <title>GifGame</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Open+Sans&display=swap" rel="stylesheet">
-    
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Open+Sans&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div class="ui secondary pointing menu">
+    <a class="item">
+      Home
+    </a>
+    <% if logged_in? %>
+    <%= link_to("Play Now!", new_user_game_path(current_user), {class: "ui item"}) %>
+    <%= link_to("Find Friends!", users_path, {class: "ui item"}) %>
+    <% end %>
+    <div class="right menu">
+      <% if logged_in? %>
+      <%= link_to("Logout", "/sessions", {method: "delete", class: "ui item"}) %>
+      <% else %>
+      <%= link_to("Login", "/login", {class: "ui item"}) %>
+      <% end %>
+    </div>
+  </div>
+  <%= yield %>
+</body>
+
 </html>
