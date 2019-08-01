@@ -81,7 +81,7 @@
     <% randomize_choices(@game.game_form.style, question).each do |choice|%>
 
     <label class="choice">
-        <%= radio_button_tag "#{index + 1}", choice %>
+        <%= radio_button_tag("#{index + 1}", choice, nil, {class: 'hidden_radio'}) %>
         <span><%= display_choice(@game.game_form.style, choice).html_safe %></span>
     </label>
 

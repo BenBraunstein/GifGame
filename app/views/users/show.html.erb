@@ -5,20 +5,28 @@
 
 <% if @user == current_user %>
 
-<%= button_to "Play Now!", new_user_game_path(@user), method: :get%>
+    <%= button_to "Play Now!", new_user_game_path(@user), method: :get%>
 
-<h2 class="section-title">Ongoing Games</h2>
 
-<ul>
-    <% @user.games.select{|game| !game.complete?}.each do |game| %>
-    <li>
-        <%= link_to(info(game.game_form.style)[:name], user_game_path(@user, game)) %>
-    </li>
+
+
+    <% if @user.games.select{|game| !game.complete?}.length > 0 %>
+
+    <h2 class="section-title">Ongoing Games</h2>
+
+    <ul>
+        <% @user.games.select{|game| !game.complete?}.each do |game| %>
+        <li>
+            <%= link_to(info(game.game_form.style)[:name], user_game_path(@user, game)) %>
+        </li>
+        <% end %>
+    </ul>
+
     <% end %>
-</ul>
-<%= "None" if @user.games.select{|game| !game.complete?}.length == 0 %>
 
 <% end %>
+
+
 
 
 <h2 class="section-title">User Statistics</h2>
@@ -43,6 +51,8 @@
 
 <% end %>
 
+<% if complete_games.length > 0 %>
+
 <h3 class="part-title">Favorite Game Styles</h3>
 
 <ol>
@@ -52,6 +62,8 @@
 <% end %>
 
 </ol>
+
+<%end%>
 
 
 <% if complete_games.length > 0 && @user == current_user %>
