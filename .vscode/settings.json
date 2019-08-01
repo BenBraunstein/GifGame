@@ -7,7 +7,6 @@
     "bin": true,
     "lib": true,
     "log": true,
-    "public": true,
     "storage": true,
     "test": true,
     "tmp": true,
@@ -26,6 +25,6 @@
     "config/storage.yml": true,
     "app/models/concerns": true,
     "app/controllers/concerns": true,
-    "app/assets": true
+    "public": true
   }
 }

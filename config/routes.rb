@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/question", to: "questions#analytics"
 
   resources :users do
-    resources :games, only: [:index, :show, :new, :create]
+    resources :games, only: [:show, :new, :create]
   end
 
   get "/signup", to: "users#new"

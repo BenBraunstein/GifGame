@@ -1,10 +1,12 @@
+
 <h1><%= @user.username %></h1>
 
 
 
 <%complete_games = @user.games.select{|game| game.complete?}%>
 
-[Restrict this info when user isn't current user]
+
+
 
 <%= button_to "Play Now!", new_user_game_path(@user), method: :get%>
 
@@ -29,18 +31,21 @@
 
 <%= "#{answers_given.select{|answer| answer.correct?}.length} / #{answers_given.length} Correct Answers" %>
 
+
+<div class="game-record-container">
+
 <h4>Record by Game Style</h4>
-
-
 
 <% game_types.each do |type| %>
 
+<div class="game-record">
 <h5><%= "#{info(type)[:name]}" %></h5>
 <%= "#{answers_given.select{|answer| answer.correct? &&  answer.game.game_form.style == type}.length} / #{answers_given.select{|answer| answer.game.game_form.style == type}.length} Correct Answers" %>
-<br />
-
+</div>
 
 <% end %>
+
+</div>
 
 
 <h4>Favorite Game Styles</h4>

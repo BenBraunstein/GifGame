@@ -101,11 +101,11 @@ class ApplicationController < ActionController::Base
   end
 
   def correct_user?
-    if params[:id]
-      @user = User.find(params[:id])
-    end
+
     if params[:user_id]
       @user = User.find(params[:user_id])
+    elsif params[:id]
+      @user = User.find(params[:id])
     end
     redirect_to "/login" unless @user == current_user
   end
