@@ -40,7 +40,7 @@
         
         
         <label class="choice">
-        <span class=<%= res %>><%= display_choice(@game.game_form.style, choice)%></span>
+        <span class=<%= res %>><%= display_choice(@game.game_form.style, choice).html_safe%></span>
         </label>
 
         
