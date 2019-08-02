@@ -28,16 +28,16 @@
     <h1 class="title">Log in to Your Account</h1>
 
     <% if flash[:message] %>
-        <h4 class="bad-notification"><%=flash[:message]%></h4>
+    <h4 class="bad-notification"><%=flash[:message]%></h4>
     <% end %>
-    
+
 
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
                 <%=form_tag "/sessions", {class: "login100-form validate-form"} do %>
                 <span class="login100-form-title p-b-26">
-                    <%= image_tag("https://files.slack.com/files-pri/T02MD9XTF-FM14KVDNK/output-onlinepngtools__3_.png") %>
+                    <%= image_tag("giffy_guesser_logo.png") %>
                 </span>
                 <span class="login100-form-title p-b-48">
                     <i class="zmdi zmdi-font"></i>

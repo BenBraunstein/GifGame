@@ -18,7 +18,6 @@
     "config/boot.rb": true,
     "config/cable.yml": true,
     "config/credentials.yml.enc": true,
-    "config/database.yml": true,
     "config/environment.rb": true,
     "config/puma.rb": true,
     "config/spring.rb": true,
