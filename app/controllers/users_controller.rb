@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     user = User.new(strong_user_params)
     if user.valid?
       user.save
+      user.update(admin?: false)
       session[:user_id] = user.id
       redirect_to user_path(user)
     else
@@ -51,8 +52,7 @@ class UsersController < ApplicationController
   def strong_user_params
     {
       username: params[:user][:username],
-      password: params[:user][:password],
-      admin?: false
+      password: params[:user][:password]
     }
   end
 end
