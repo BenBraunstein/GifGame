@@ -1,5 +1,4 @@
 class Question::SynsController < ApplicationController
-
   before_action :authorized?
   before_action :authorized_admin?
 
@@ -41,7 +40,7 @@ class Question::SynsController < ApplicationController
         QuestionSyn.create(strong_question_params(index))
       end
     end
-    redirect_to question_syn_path
+    redirect_to question_syns_path
   end
 
   def destroy
