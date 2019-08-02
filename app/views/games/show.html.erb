@@ -51,27 +51,35 @@
 
 <% end %>
 
+
+
 <h2 class="section-title">Record Board</h2>
 
 <ul>
 
-<% stored_index = 1 %>
-<% previous_score = 0 %>
+<% tie_count = 0 %>
+
+<% previous_score = nil %>
 
 <% @game.game_form.sorted_comparative_results.each_with_index do |result_pair, index|%>
 
-<% user = @users.find{|user| user.id == result_pair[0]} %>
-<% score = result_pair[1]%>
+    <% user = @users.find{|user| user.id == result_pair[0]} %>
+    <% score = result_pair[1]%>
 
-<% if previous_score != score %>
-<% stored_index = index + 1 %>
-<% end %>
+    <% if previous_score == score %>
+        <% tie_count += 1 %>
+    <% else %>
+        <% tie_count = 0 %>
+    <% end %>
 
-<li><%= "#{stored_index}. #{user.username}  (score of #{score} out of #{@game.game_form.game_questions.length})" %></li>
+    <% previous_score = score %>
+
+    <li><%= "#{1 + index - tie_count}. #{user.username}  (score of #{score} out of #{@game.game_form.game_questions.length})" %></li>
 
 <% end %>
 
 </ul>
+
 
 
 

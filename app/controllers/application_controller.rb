@@ -34,8 +34,8 @@ class ApplicationController < ActionController::Base
     when "mat"
       { style: "mat",
         name: "The Matching Game",
-        description: "Figure out which gif goes with the others!",
-        instructions: "Each question has a collection of three related gifs. You have to decide which of two futher gifs goes best with the first three!" }
+        description: "Guess the least popular gif!",
+        instructions: "Each set of gifs was generated from a single seach term. Choose the gif that was the least popular result for that search term."}
     end
   end
 

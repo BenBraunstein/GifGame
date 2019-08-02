@@ -13,10 +13,10 @@ class GameForm < ApplicationRecord
 
         game_form = GameForm.last
 
-        style_hash = {syn: {class: QuestionSyn, question_number: 5, question_type: "QuestionSyn"},
-                      dog: {class: QuestionDog, question_number: 8, question_type: "QuestionDog"},
-                      mov: {class: QuestionMov, question_number: 8, question_type: "QuestionMov"},
-                      mat: {class: QuestionMat, question_number: 4, question_type: "QuestionMat"}}
+        style_hash = {syn: {class: QuestionSyn, question_number: 10, question_type: "QuestionSyn"},
+                      dog: {class: QuestionDog, question_number: 10, question_type: "QuestionDog"},
+                      mov: {class: QuestionMov, question_number: 10, question_type: "QuestionMov"},
+                      mat: {class: QuestionMat, question_number: 10, question_type: "QuestionMat"}}
 
         
         style_hash[game_form.style.to_sym][:class].all.sample(style_hash[game_form.style.to_sym][:question_number]).each do |question|
