@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_07_31_134018) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "game_answers", force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "game_question_id"
+    t.bigint "game_id"
+    t.bigint "game_question_id"
     t.string "choice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_134018) do
   end
 
   create_table "game_questions", force: :cascade do |t|
-    t.integer "game_form_id"
+    t.bigint "game_form_id"
     t.integer "question_id"
     t.string "question_type"
     t.datetime "created_at", null: false
@@ -57,11 +60,10 @@ ActiveRecord::Schema.define(version: 2019_07_31_134018) do
   end
 
   create_table "question_mats", force: :cascade do |t|
-    t.string "gif1"
-    t.string "gif2"
-    t.string "gif3"
-    t.string "agif"
-    t.string "wgif"
+    t.string "w1"
+    t.string "w2"
+    t.string "w3"
+    t.string "a"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "search_term"
@@ -95,4 +97,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_134018) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "game_answers", "game_questions"
+  add_foreign_key "game_answers", "games"
+  add_foreign_key "game_questions", "game_forms"
 end
