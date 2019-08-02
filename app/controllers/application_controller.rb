@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
     when "mov"
       "<img src='#{question.gif}' >"
     when "mat"
-      "<h4>Search: #{question.search_term}</h4>"
+      "<h4 style='color:white; text-align:center'>Search: #{question.search_term}</h4>"
     end
   end
 
@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
     when "mov"
       "#{choice}"
     when "mat"
-      "<img src='#{choice}' height='250' width='250'>"
+      "<img src='#{choice}' width='400px'>"
     end
   end
 
