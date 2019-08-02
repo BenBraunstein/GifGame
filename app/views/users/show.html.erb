@@ -5,7 +5,9 @@
 
 <% if @user == current_user %>
 
-    <%= button_to "Play Now!", new_user_game_path(@user), method: :get%>
+    <%= button_to "Play!", new_user_game_path(@user), method: :get, class: 'important_button'%>
+
+    <%= button_to "Edit Your Info", edit_user_path(@user), method: :get%>
 
 
 
@@ -58,7 +60,9 @@
 <ol>
 
 <% @user.games.group_by{|game| game.game_form.style}.to_a.sort_by{|pair| -pair[1].length}.each do |style_pair|%>
-<li><%= "#{info(style_pair[0])[:name]} (#{style_pair[1].length} games)"%></li>
+<li><%= "#{info(style_pair[0])[:name]}"%>
+    <br/>
+    <%="#{style_pair[1].length} game(s)"%></li>
 <% end %>
 
 </ol>

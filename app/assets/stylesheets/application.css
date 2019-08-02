@@ -18,9 +18,56 @@
   font-family: "Open Sans", sans-serif;
  }
 
+
 .ui.secondary.pointing.menu {
   background-color: #fbbd08;
+  box-shadow: #000;
+  position: fixed;
+  height: 50px;
+  top: 0;
+  width: 100%;
 }
+
+
+.big-button {
+  color:#fbbd08;
+  border:#fbbd08 solid 6px;
+  border-radius:6px;
+  text-align: center;
+  line-height: 1.2;
+  background-color: black;
+  height: 80px;
+  width: 150px;
+  margin:0 10px;
+  font-size:4em;
+  font-family: "Baloo Chettan", cursive;
+}
+
+.big-button:hover {
+  background:black;
+  color: #fbbd08;
+}
+
+.small-button {
+  height: 40px;
+  color:black;
+  border:black solid 4px;
+  border-radius:4px;
+  padding: 0 10px;
+  margin:4px 10px;
+  font-size:1.5em;
+  font-family: "Baloo Chettan", cursive;
+}
+
+.small-button:hover {
+  background:black;
+  color: #fbbd08;
+}
+
+
+
+
+
 
 .main-content {
   margin: 0 auto;
@@ -48,12 +95,45 @@
   font-size: 24px;
 }
 
+.neutral-notification {
+  text-align: center;
+  border-radius: 2px;
+  padding: 14px 30px;
+  margin: 10px 0;
+  color: #fbbd08;
+  font-size: 32px;
+  border: black double 8px;
+}
+
+.good-notification {
+  border: solid #0CC941 4px;
+  text-align: center;
+  padding: 14px 30px;
+  margin: 10px auto;
+  color: #0CC941;
+  background: white;
+  font-size: 1.4em;
+  width: 60%;
+}
+
+.bad-notification {
+  border: solid #E85C5C 4px;
+  text-align: center;
+  color: #E85C5C;
+  padding: 14px 30px;
+  margin: 10px auto;
+  background: white;
+  font-size: 1.4em;
+  width: 60%;
+}
+
 ul {
   padding: 10px 0;
   border: black 8px double;
   border-radius: 8px;
   width: 300px;
   list-style-type: none;
+  text-align: center;
 }
 
 ol {
@@ -64,8 +144,48 @@ ol {
 }
 
 li {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin: .5em 1em;
+  
+}
+
+li > a {
+  font-size: 1.2em;
+  color: black;
+  border: black solid 2px;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+li > a:hover {
+  box-shadow: 0 0 0 0.1em #000;
+  color: black;
+}
+
+
+
+li > p {
+  color: black;
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+
+
+
+li > p > a {
+  color: black;
+  padding: 2px;
+  border-bottom: black 2px solid;
+}
+
+li > p > a:hover {
+  box-shadow: 0 0 0 0.1em #000;
+  color: black;
+}
+
+li > form {
+  font-size: 16px;
+  text-align: center;
 }
 
 
@@ -73,7 +193,7 @@ li {
 .stats {
   margin: 1vh 0;
   border: black double 8px;
-  border-radius: 6px;
+  border-radius: 2px;
   width: 400px;
   font-size: 1.25em;
   text-align: center;
@@ -83,8 +203,13 @@ li {
   color: #fbbd08;;
   background: #000;
   padding: 0.25em 1em;
-  border-radius: 1em;
+  border-radius: 4px;
   text-align: left;
+}
+
+.stats > p {
+  font-size: 1.2em;
+  color: black;
 }
 
 
@@ -162,7 +287,7 @@ html {
 }
 
 .question > legend {
-  color: #fbbd08;;
+  color: #fbbd08;
   background: #000;
   padding: 0.25em 1em;
   border-radius: 1em;
@@ -192,6 +317,36 @@ html {
   font-size: 1em;
 }
 
+.results {
+  text-align: center;
+  width: 90%;
+  display: inline-block;
+  border: black solid 4px;
+  border-radius: 4px;
+  margin: 1vh 0;
+  padding: 0.5em;
+}
+
+.results-yours {
+  text-align: center;
+  width: 90%;
+  display: inline-block;
+  border: #E85C5C solid 4px;
+  border-radius: 4px;
+  margin: 1vh 0;
+  padding: 0.5em;
+}
+
+.results-right {
+  text-align: center;
+  width: 90%;
+  display: inline-block;
+  border: #0CC941 solid 4px;
+  border-radius: 4px;
+  margin: 1vh 0;
+  padding: 0.5em;
+}
+
 /* HTML5 Boilerplate accessible hidden styles */
 .hidden_radio {
   border: 0;
@@ -219,20 +374,36 @@ html {
 }
 [type="radio"]:checked + span {
   box-shadow: 0 0 0 0.2em #000;
+  background:#fbbd08;
 }
 
 [type="submit"] {
   text-align: center;
   color:black;
-  background: white;
+  background: #fbbd08;
   width: 200px;
   display: inline-block;
   border: black solid 4px;
-  border-radius: 4px;
+  border-radius: 16px;
   margin: 1vh 0;
   padding: 0.5em;
   font-family: "Baloo Chettan", cursive;
   font-size: 1.25em;
+  
+}
+
+.important_button {
+  text-align: center;
+  color:black;
+  background: #fbbd08;
+  width: 200px;
+  display: inline-block;
+  border: black solid 4px;
+  border-radius: 20px;
+  margin: 1vh 0;
+  padding: 0.5em;
+  font-family: "Baloo Chettan", cursive;
+  font-size: 1.5em;
 }
 
 [type="submit"]:hover {

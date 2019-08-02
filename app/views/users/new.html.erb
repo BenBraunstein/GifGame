@@ -24,6 +24,12 @@
 </head>
 
 <body>
+    <h1 class="title">Create an Account</h1>
+
+    <% if flash[:message]%>
+        <h4 class="bad-notification"><%= flash[:message]%></h4>
+    <% end %>
+
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">

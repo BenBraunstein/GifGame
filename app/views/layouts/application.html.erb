@@ -18,27 +18,29 @@
 <body>
   <div class="ui secondary pointing menu">
 
+    <%= link_to("GG", "/", {class: "big-button"}) %>
+
+    
     <% if logged_in? %>
-      <%= link_to("Home", user_path(current_user), {class: "ui item"}) %>
-    <%else%>
-      <%= link_to("Home", "/", {class: "ui item"}) %>
-    <% end %>
-
-
-
-
-    <% if logged_in? %>
-    <%= link_to("Play Now!", new_user_game_path(current_user), {class: "ui item"}) %>
-    <%= link_to("Find Friends!", users_path, {class: "ui item"}) %>
+    <%= link_to("Profile", user_path(current_user), {class: "small-button"}) %>
+    <%= link_to("Choose a Game", new_user_game_path(current_user), {class: "small-button"}) %>
+    <%= link_to("Find Other Users", users_path, {class: "small-button"}) %>
     <% end %>
     <div class="right menu">
       <% if logged_in? %>
-      <%= link_to("Logout", "/sessions", {method: "delete", class: "ui item"}) %>
+      <%= link_to("Logout", "/sessions", {method: "delete", class: "small-button"}) %>
       <% else %>
-      <%= link_to("Login", "/login", {class: "ui item"}) %>
+      <%= link_to("Sign Up!", new_user_path, {class: "small-button"}) %>
+      <%= link_to("Log In!", "/login", {class: "small-button"}) %>
       <% end %>
     </div>
   </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  
 
 
   <div class="main-content">

@@ -52,7 +52,8 @@ class Question::DogsController < ApplicationController
     end
   
     def destroy
-  
+      QuestionDog.destroy(params[:id])
+      redirect_to question_dogs_path
     end
 
     private

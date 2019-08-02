@@ -1,12 +1,59 @@
 <h1 class="title"><%= info(@game.game_form.style)[:name] %></h1>
 
 
+
+
+
 <% if @game.complete? %>
 
-<h4><%= "You got #{@game.game_answers.select{|answer| answer.correct?}.length} out of #{@game.game_answers.length}!"%>
-</h4>
+<h4 class="neutral-notification"><%= "You got #{@game.game_answers.select{|answer| answer.correct?}.length} out of #{@game.game_answers.length}!"%></h4>
 
-<h2 class="title">Record Board</h2>
+<%= button_to "Find New Game", new_user_game_path(@user), { method: 'get', class:"important_button"}%>
+
+
+<h2 class="section-title">Your Results</h2>
+
+
+
+<% @game.game_answers.each_with_index do |answer, index| %>
+
+
+<fieldset class="question">
+
+    <legend>Question <%= index + 1%></legend>
+
+    <% if answer.correct? %>
+        <h4 class="good-notification">Correct!</h4>
+    <% else%>
+        <h4 class="bad-notification">Wrong!</h4>
+    <% end %>
+
+    <div class="prompt"><%= display_prompt(@game.game_form.style, answer.question).html_safe %></div>
+
+
+
+    <% randomize_choices(@game.game_form.style, answer.question).each do |choice|%>
+
+        <% res = "results" %>
+        <% res = "results-yours" if choice == answer.choice%>
+        <% res = "results-right" if choice == answer.question.a%>
+        
+        
+        <label class="choice">
+        <span class=<%= res %>><%= display_choice(@game.game_form.style, choice)%></span>
+        </label>
+
+        
+
+    <% end %>
+        
+</fieldset>
+
+<% end %>
+
+<h2 class="section-title">Record Board</h2>
+
+<ul>
 
 <% stored_index = 1 %>
 <% previous_score = 0 %>
@@ -24,45 +71,19 @@
 
 <% end %>
 
-<h2 class="title">Your Results</h2>
+</ul>
 
-<% @game.game_answers.each_with_index do |answer, index| %>
-
-<h3>Question <%= index + 1%></h3>
-
-<% if answer.correct? %>
-<h4>Correct!</h4>
-<% else%>
-<h4>Wrong!</h4>
-<% end %>
-
-<%= display_prompt(@game.game_form.style, answer.question).html_safe %>
-
-<% randomize_choices(@game.game_form.style, answer.question).each do |choice|%>
-
-<li><%= display_choice(@game.game_form.style, choice)%>
-
-    <%="(Your Answer)" if choice == answer.choice%>
-    <%="(The Correct Answer)" if choice == answer.question.a%>
-
-</li>
-
-<% end %>
-
-<% end %>
-
-<h4><%="(played on #{@game.updated_at.to_date})"%></h4>
 
 
 
 
 <% else %>
 
-<h2 class="title">Instructions</h2>
+<h2 class="section-title">Instructions</h2>
 
-<%= info(@game.game_form.style)[:instructions] %>
+<span style="font-size:20px"><%= info(@game.game_form.style)[:instructions] %></span>
 
-<h2 class="title">Questions</h2>
+<h2 class="section-title">Questions</h2>
 
 
 <%= form_tag "/users/#{@game.user.id}/games/#{@game.id}" do %>
@@ -91,8 +112,8 @@
 
 <% end %>
 
+<div style="display:flex;justify-content:center"><%= submit_tag "Submit Answers!" , {class:"important_button"} %></div>
 
-<%= submit_tag("Submit Answers!") %>
 
 <% end %>
 

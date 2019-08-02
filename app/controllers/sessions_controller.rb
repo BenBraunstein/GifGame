@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      flash[message] = "Sorry, you don't have a matching username and password."
+      flash[:message] = "Sorry, you need a matching username and password."
+      redirect_to '/login'
     end
   end
 

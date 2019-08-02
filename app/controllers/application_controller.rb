@@ -91,12 +91,12 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized?
-    redirect_to "/login" unless logged_in?
+    redirect_to "/" unless logged_in?
   end
 
   def authorized_admin?
     if logged_in?
-      redirect_to "/login" unless current_user.admin?
+      redirect_to "/" unless current_user.admin?
     end
   end
 
@@ -107,6 +107,6 @@ class ApplicationController < ActionController::Base
     elsif params[:id]
       @user = User.find(params[:id])
     end
-    redirect_to "/login" unless @user == current_user
+    redirect_to '/' unless @user == current_user
   end
 end

@@ -58,6 +58,8 @@ before_action :authorized_admin?
   end
 
   def destroy
+    QuestionMat.destroy(params[:id])
+      redirect_to question_mats_path
   end
 
   private

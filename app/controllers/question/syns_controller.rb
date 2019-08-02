@@ -45,6 +45,8 @@ class Question::SynsController < ApplicationController
   end
 
   def destroy
+    QuestionSyn.destroy(params[:id])
+    redirect_to question_syns_path
   end
 
   private

@@ -2,23 +2,35 @@
 <h1 class="title">Start a New Game!</h1>
 
 
-<h2 class="section-title">Choose a Game</h2>
+<h2 class="section-title">Choose a Game Type</h2>
+
+<h4 style="font-size:20px;max-width:600px;margin:20px 0 60px 0">Chose which game type you want to play! We'll give you a random selection of questions from our database!</h4>
 
 <% game_types.each do |game_type| %>
 
-<div>
-    <h3><%=info(game_type)[:name]%></h3>
-    <p><%=info(game_type)[:description]%></p>
-    <%= button_to "Play Now!", user_games_path(@user), params: {style: game_type} %>
-</div>
+    <fieldset class="stats">
+            <legend><%=info(game_type)[:name]%></legend>
+            <span><%=info(game_type)[:description]%></span>
+            <%= button_to "Play Now!", user_games_path(@user),{class: 'important_button', params: {style: game_type}} %>
+    </fieldset>
 
 <% end %>
 
 
-
 <h2 class="section-title">Challenge Another User<h2>
 
+<h4 style="font-size:20px;max-width:600px;margin:0 0 60px 0">See if you can out-guess your friends! Challenging someone lets you answer the exact same questions that they answered.</h4>
+
+    <ul>
+
     <% @recent.each do |game| %>
-        <li><%= link_to "#{game.user.username}", user_path(game.user) %> <%="played #{info(game.game_form.style)[:name]}"%> <%= button_to "Challenge!", create_user_game_with_form_path(@user, game.game_form.id) %></li>
+        <li>
+            <p><%= link_to "#{game.user.username}", user_path(game.user) %>
+            <%=" played #{info(game.game_form.style)[:name]}"%></p>
+            <%= button_to "Challenge!", create_user_game_with_form_path(@user, game.game_form.id) %>
+            <br/>
+        </li>
 
     <% end %>
+
+    </ul>

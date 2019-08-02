@@ -8,9 +8,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(strong_user_params)
-    session[:user_id] = user.id
-    redirect_to user_path(user)
+
+    user = User.new(strong_user_params)
+    if user.valid?
+      user.save
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      flash.now[:message] = user.errors.full_messages[0]
+      @user = User.new()
+      render :new
+    end
   end
 
   def edit
@@ -19,8 +27,12 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(strong_user_params)
-    redirect_to user_path(user)
+    if user.update(strong_user_params)
+      redirect_to user_path(user)
+    else
+      flash.now[:message] = user.errors.full_messages[0]
+      render :edit
+    end
   end
 
   def show

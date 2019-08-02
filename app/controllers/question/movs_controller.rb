@@ -104,6 +104,8 @@ class Question::MovsController < ApplicationController
   end
 
   def destroy
+    QuestionMov.destroy(params[:id])
+    redirect_to question_movs_path
   end
 
   private
